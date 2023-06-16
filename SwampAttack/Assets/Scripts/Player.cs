@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(PolygonCollider2D))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private int _health;
@@ -13,10 +14,12 @@ public class Player : MonoBehaviour
 
     private Weapon _currentWeapon;
     private Animator _animator;
+    private PolygonCollider2D _polygonCollider;
     private int _currentHealth;
     private int _currentWeaponIndex;
 
     public int Coins { get; private set; }
+    public int Health => _health;
 
     public event UnityAction<int, int> HealthChanged;
 
@@ -25,6 +28,7 @@ public class Player : MonoBehaviour
         SwapWeapon(_weapons[_currentWeaponIndex]);
         _currentHealth = _health;
         _animator = GetComponent<Animator>();
+        _polygonCollider = GetComponent<PolygonCollider2D>();
     }
 
     private void Update()
@@ -32,16 +36,28 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             _currentWeapon.Shoot(_shootPoint);
+            _animator.Play("Shoot");
         }
     }
 
     public void ApplyDamage(int damage)
     {
-        _currentHealth -= damage;
-        HealthChanged?.Invoke(_currentHealth, _health);
+        if (_currentHealth > 0)
+        {
+            _currentHealth -= damage;
+            _animator.Play("Hit");
+            HealthChanged?.Invoke(_currentHealth, _health);
+        }
+        else
+        {
+            _polygonCollider.enabled = false;
+            _animator.Play("Death");
+        }
+    }
 
-        if(_currentHealth <= 0 )
-            Destroy(gameObject);
+    public void Death()
+    {
+        Destroy(gameObject);
     }
 
     public void AddCoins(int reward)
@@ -57,9 +73,9 @@ public class Player : MonoBehaviour
 
     public void NextWeapon()
     {
-        if(_currentWeaponIndex == _weapons.Count - 1)
+        if (_currentWeaponIndex == _weapons.Count - 1)
             _currentWeaponIndex = 0;
-        else 
+        else
             _currentWeaponIndex++;
 
         SwapWeapon(_weapons[_currentWeaponIndex]);

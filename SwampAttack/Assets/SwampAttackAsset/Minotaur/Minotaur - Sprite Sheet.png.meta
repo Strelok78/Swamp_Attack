@@ -1210,8 +1210,8 @@ TextureImporter:
       name: Minotaur - Sprite Sheet_132
       rect:
         serializedVersion: 2
-        x: 124
-        y: 1088
+        x: 123
+        y: 1086
         width: 56
         height: 40
       alignment: 7
@@ -1231,7 +1231,7 @@ TextureImporter:
       name: Minotaur - Sprite Sheet_133
       rect:
         serializedVersion: 2
-        x: 220
+        x: 221
         y: 1088
         width: 56
         height: 41

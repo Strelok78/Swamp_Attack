@@ -1285,10 +1285,10 @@ MonoBehaviour:
   _waves:
   - Template: {fileID: 1347500480296832481, guid: 940043dd9a3b1d24caa6105dd9907a1d, type: 3}
     Delay: 1
-    Count: 5
-  - Template: {fileID: 1347500480296832481, guid: 940043dd9a3b1d24caa6105dd9907a1d, type: 3}
+    Count: 3
+  - Template: {fileID: 3925090753148539444, guid: 17305a39160986345a088fc2c03579cc, type: 3}
     Delay: 0.5
-    Count: 10
+    Count: 3
   _spawnPoint: {fileID: 564777868}
   _player: {fileID: 2124724461}
 --- !u!1 &580274495
@@ -6293,6 +6293,7 @@ GameObject:
   - component: {fileID: 2124724459}
   - component: {fileID: 2124724458}
   - component: {fileID: 2124724461}
+  - component: {fileID: 2124724462}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6381,7 +6382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124724457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.7, y: -4.7, z: 0}
+  m_LocalPosition: {x: 4.43, y: -4.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6405,6 +6406,59 @@ MonoBehaviour:
   _weapons:
   - {fileID: 8295076011603750654, guid: 25771c72fef7cd845a65ec69c5161e51, type: 3}
   _shootPoint: {fileID: 32093519}
+--- !u!60 &2124724462
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124724457}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.225}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 2.56, y: 2.56}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.1875, y: 1.5375}
+      - {x: -0.625, y: 1.2875}
+      - {x: -1.0625, y: 0.16250002}
+      - {x: -1.0625, y: -0.024999976}
+      - {x: 0.375, y: -0.024999976}
+      - {x: 1.25, y: 0.47500002}
+      - {x: 1.25, y: 0.7875}
+      - {x: 0.4375, y: 1.5375}
+  m_UseDelaunayMesh: 0
 --- !u!1 &2134271058
 GameObject:
   m_ObjectHideFlags: 0
